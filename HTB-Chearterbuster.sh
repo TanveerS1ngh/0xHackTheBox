@@ -1,7 +1,26 @@
 #!/bin/bash
 
-# Source the secrets file to load the API token
-source secret
+# Check if the secret file exists, if not, prompt to create one
+if [[ ! -f "secret" ]]; then
+  echo "The API token file 'secret' is missing."
+  echo "Please input your API token to create the 'secret' file."
+  read -p "Enter your authorization Bearer token: " API_TOKEN
+
+  # Create the secret file with the token
+  echo "API_TOKEN='$API_TOKEN'" > secret
+  echo "'secret' file created successfully with the provided token."
+else
+  # Load the API token from the secret file
+  source secret
+fi
+
+# Function to refresh the API token if invalid
+refresh_token() {
+  echo "API token is invalid or expired. Please input a new token."
+  read -p "Enter your new authorization Bearer token: " API_TOKEN
+  echo "API_TOKEN='$API_TOKEN'" > secret
+  echo "API token updated successfully."
+}
 
 # Check if the flag and ID are provided
 if [[ -z "$1" || -z "$2" ]]; then
@@ -53,6 +72,12 @@ fetch_activity() {
   echo "Divine Clown is Fetching the activity of $entity_type: $ID"
 
   response=$(curl -s "$url" -H "authorization: Bearer $API_TOKEN" -H 'accept: application/json' -H 'user-agent: Mozilla/5.0')
+
+  # Check if the token is invalid or expired
+  if [[ "$response" == *"Invalid token"* || "$response" == *"Token expired"* ]]; then
+    refresh_token
+    response=$(curl -s "$url" -H "authorization: Bearer $API_TOKEN" -H 'accept: application/json' -H 'user-agent: Mozilla/5.0')
+  fi
 
   if [[ -z "$response" ]]; then
     echo "No data received from the server for $entity_type."
