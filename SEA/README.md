@@ -35,6 +35,10 @@ To successfully run either script, the following tools and conditions are requir
 
 ## Script 1: Automatic Exploit
 
+### POC
+
+![Pasted image 20241010021603](https://github.com/user-attachments/assets/574eec93-47ee-43b6-88f7-ac232c0b341b)
+
 ### Features
 
 This version of the exploit automatically checks for an active `nc` listener, downloads the reverse shell, starts the HTTP server, sends the payload, and waits for the admin to trigger the reverse shell.
@@ -72,6 +76,15 @@ This version of the exploit automatically checks for an active `nc` listener, do
 ---
 
 ## Script 2: Manual Exploit
+
+### POC
+
+![Pasted image 20241010013048](https://github.com/user-attachments/assets/2ace908d-e74f-43a0-8b25-7677953b731f)
+
+Use the exploit provided by the script in Website field...
+
+![Pasted image 20241010013218](https://github.com/user-attachments/assets/aad7312e-4c6b-4238-987e-888424fb7a2a)
+
 
 ### Features
 
