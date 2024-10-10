@@ -1,7 +1,3 @@
-Here is a well-detailed `README.md` for the two scripts you provided:
-
----
-
 # WonderCMS 4.3.2 XSS to RCE Exploits
 
 ## Overview
